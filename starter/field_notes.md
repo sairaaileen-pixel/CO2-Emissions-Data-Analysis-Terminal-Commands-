@@ -49,7 +49,8 @@ this repo up (see `README.md`) — `git init`/clone, creating your
 reconstruct it from memory at the end.
 
 ```bash
-# TODO: the commands you actually ran to set up this repo
+# TODO: the commands you actually ran to set up this repo  git clone <repo>, cd data/
+
 ```
 
 ## 1. First look at the raw file
@@ -60,10 +61,16 @@ enough to see the shape of it without scrolling past everything.
 
 ```bash
 # TODO: a command that prints just the first 5 lines of the raw file
-```
+``` head -n ```
 
 **Output:**
-_TODO: paste what you actually got_
+
+_TODO: paste what you actually got_  
+ country,iso_code,year,population,gdp,co2
+Afghanistan,AFG,2022,40578847,53303471617,10.170
+Africa,,2022,1445862695,,1459.114
+Africa (GCP),,2022,,,1459.103
+Albania,ALB,2022,2827614,36171005594,4.498 
 
 **What I notice:** _TODO — your raw observations, in your own words_
 
@@ -91,30 +98,35 @@ row. Column numbers for reference: `country`=1, `iso_code`=2, `year`=3,
 # TODO: a command that prints the first 6 values from a single column
 # (repeat this for at least 5 of the 6 columns, swapping in each column's number)
 ```
+```bash 
+cut -d',' -f5 co2_emissions_2022.csv |  head -n 6 
+```
 
 Fill in the table from what you actually saw — not a guess from the column
 name alone:
 
 | Column | Inferred type | How I can tell |
-|---|---|---|
-| _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ |
+| Country | String | I can tell because they are text values representing geographic entities like Afganistan and Africa|
+| iso_code| String | It is a group of letters used to identify a country |
+| Year | Integer | They are whole numbers   |
+| Population | Integer | Whole numbers |
+| gpd | Integer | Whole numbers w vith no decimal points |
+|  Co2 | Float | They are numbers with decimal points |
 
 **In your own words:** what's the actual difference between a list/array
 and a table? (Not a definition you looked up — explain it the way you'd
 explain it to a friend who's never coded. No command needed for this one,
 just think about the table you just filled in above.)
 
-_TODO_
+A list/ array is a line where we can find a group of values, ususally separated by , or |.
+
+A table is a  two dimensional structure where we can find data organized by columns and arrays.
 
 ## 4. Structured or unstructured?
 
 State whether this dataset is structured or unstructured, and why.
 
-_TODO_
+This dataset is organized because the data is structured in a table where each data type has it's respective column and row.
 
 ## 5. Before you trust this data
 
@@ -127,18 +139,22 @@ command's output into the next as input.
 
 ```bash
 # TODO: a command (or combination) that counts how many rows have a
-# BLANK iso_code
+# BLANK iso_code 
+#  
+```bash cut -d ',' -f2  co2_emissions_2022.csv | grep -c '^$'
 ```
 
 **Output:**
-_TODO_
+36
 
 ```bash
 # TODO: the same idea, but for the gdp column
+``` 
+```bash
+cut -d ',' -f5  co2_emissions_2022.csv | grep -c '^$'
 ```
-
 **Output:**
-_TODO_
+89 
 
 List **at least 2** specific things you'd want to know about how this
 dataset was collected, before trusting any conclusion drawn from it — ground
