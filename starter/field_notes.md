@@ -152,7 +152,7 @@ You may need more than one command for this — piping (`|`) feeds one
 command's output into the next as input.
 
 ```bash
-# TODO: a command (or combination) that counts how many rows have a
+# A command (or combination) that counts how many rows have a
 # BLANK iso_code 
 #  
 ```bash cut -d ',' -f2  co2_emissions_2022.csv | grep -c '^$'
