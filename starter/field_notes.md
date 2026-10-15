@@ -49,7 +49,11 @@ this repo up (see `README.md`) — `git init`/clone, creating your
 reconstruct it from memory at the end.
 
 ```bash
-# TODO: the commands you actually ran to set up this repo  git clone <repo>, cd data/
+# TODO: the commands you actually ran to set up this repo  git clone <repo>, 
+cd data
+ git clone 
+cd data-literacy-project/data
+git status
 
 ```
 
@@ -60,8 +64,10 @@ safe peek at it — not the whole 254-row file, just the **first 5 lines**,
 enough to see the shape of it without scrolling past everything.
 
 ```bash
-# TODO: a command that prints just the first 5 lines of the raw file
-``` head -n ```
+#  A command that prints just the first 5 lines of the raw file  
+head -n 5 
+```
+
 
 **Output:**
 
@@ -72,7 +78,8 @@ Africa,,2022,1445862695,,1459.114
 Africa (GCP),,2022,,,1459.103
 Albania,ALB,2022,2827614,36171005594,4.498 
 
-**What I notice:** _TODO — your raw observations, in your own words_
+**What I notice:** _TODO — your raw observations, in your own words_ 
+I noticed that the country column includes entries like "Africa", which is a continent not a country, and that some rows contain missing values.
 
 ## 2. Column names
 
@@ -80,12 +87,19 @@ Next you want to see just the column names by themselves — one per line is
 a lot easier to scan than one long comma-separated row.
 
 ```bash
-# TODO: a command (or combination of commands) that prints just the header
+# TODO: a command (or combination of commands) that prints just the header 
+ ```bash head -n 1 co2_emissions_2022.csv | tr ',' '\n' ```
 # row, one column name per line
-```
+``` 
 
 **Output:**
-_TODO_
+_TODO_. 
+country
+iso_code
+year
+population
+gdp
+co2
 
 ## 3. Column-by-column data type table
 
@@ -118,9 +132,9 @@ and a table? (Not a definition you looked up — explain it the way you'd
 explain it to a friend who's never coded. No command needed for this one,
 just think about the table you just filled in above.)
 
-A list/ array is a line where we can find a group of values, ususally separated by , or |.
+A list/ array is a line where we can find a group of values, ususally separated by "," or "|".
 
-A table is a  two dimensional structure where we can find data organized by columns and arrays.
+A table is a  two dimensional structure where we can find multiple data types organized by columns and arrays.
 
 ## 4. Structured or unstructured?
 
@@ -161,8 +175,8 @@ dataset was collected, before trusting any conclusion drawn from it — ground
 at least one in the counts you just found.
 
 **My 2 concerns:**
-1. _TODO_
-2. _TODO_
+1. I want to know how reliable this data is. How did they get the CO2 emissions numbers for each country? Was it measured directly or was it estimated?
+2. The country column has many rows that are not real countries. For example, there are continents (like Africa), income groups (rows 168, 175, 176, 244, 252), and transport categories like international aviation (row 122) and shipping (row 127). Also, rows 76 to 81 do not even have country names.
 
 ## 6. Data-quality question for the source
 
@@ -171,7 +185,7 @@ phrase it as a real question you'd send to the data's source/maintainer. A
 good test: could they actually answer it with a concrete yes/no or fact —
 not "is this data good?"
 
-_TODO_
+Should non-country rows like international aviation (row 122), international shipping (row 127), and missing country rows (76 to 81) be filtered out when calculating emissions for individual countries?
 
 ## 7. Something you're actually curious about
 
