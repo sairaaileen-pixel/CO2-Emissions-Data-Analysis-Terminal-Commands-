@@ -71,14 +71,14 @@ head -n 5
 
 **Output:**
 
-_TODO: paste what you actually got_  
+  what you actually got_  
  country,iso_code,year,population,gdp,co2
 Afghanistan,AFG,2022,40578847,53303471617,10.170
 Africa,,2022,1445862695,,1459.114
 Africa (GCP),,2022,,,1459.103
 Albania,ALB,2022,2827614,36171005594,4.498 
 
-**What I notice:** _TODO — your raw observations, in your own words_ 
+**What I notice:**  your raw observations, in your own words :
 I noticed that the country column includes entries like "Africa", which is a continent not a country, and that some rows contain missing values.
 
 ## 2. Column names
@@ -87,19 +87,14 @@ Next you want to see just the column names by themselves — one per line is
 a lot easier to scan than one long comma-separated row.
 
 ```bash
-# TODO: a command (or combination of commands) that prints just the header 
- ```bash head -n 1 co2_emissions_2022.csv | tr ',' '\n' ```
+# A command (or combination of commands) that prints just the header 
+ ```bash 
+ head -5 co2_emissions_2022.csv 
 # row, one column name per line
 ``` 
 
-**Output:**
-_TODO_. 
-country
-iso_code
-year
-population
-gdp
-co2
+**Output:** 
+country,iso_code,year,population,gdp,co2
 
 ## 3. Column-by-column data type table
 
@@ -109,7 +104,7 @@ row. Column numbers for reference: `country`=1, `iso_code`=2, `year`=3,
 `population`=4, `gdp`=5, `co2`=6.
 
 ```bash
-# TODO: a command that prints the first 6 values from a single column
+#  A command that prints the first 6 values from a single column
 # (repeat this for at least 5 of the 6 columns, swapping in each column's number)
 ```
 ```bash 
@@ -230,10 +225,12 @@ this at least once. Paste the actual command and what actually happened
 fix — not "I googled it and it worked."
 
 ```bash
-# TODO: a command that errored, or gave you unexpected results
+#  A command that errored, or gave you unexpected results
+grep -E '^(Haiti|Dominican Republic),' co2_emissions_2022.csv
 ```
 
 **What happened:**
-_TODO: the actual error message, or the unexpected output you got_
+The actual error message, or the unexpected output you got_
+grep: co2_emissions_2022.csv: No such file or directory
 
-**What it told me and how I fixed it:** _TODO_
+**What it told me and how I fixed it:** I realized I was in the wrong directory and used pwd to check my current location, then used cd to move into the correct directory where the file was stored before running the command again.
