@@ -197,12 +197,15 @@ curious to compare, and look up their full rows.
 ```bash
 # TODO: a command that finds a specific country's row by name (repeat for
 # a second country of your choice)
+ grep -n "Haiti" co2_emissions_2022.csv 
+ grep -n "Dominican Republic" co2_emissions_2022.csv
 ```
 
 **Output:**
-_TODO_
+99:Haiti,HTI,2022,11503603,17550916862,2.870
+66:Dominican Republic,DOM,2022,11230734,191182362267,31.225
 
-**My question:** _TODO_
+**My question:** How is ocean acidification, caused by increasing CO2 levels, affecting the biodiversity of the island?
 
 ## 8. AI-literacy reflection
 
@@ -213,10 +216,10 @@ fact before relying on it professionally — specific enough that you could
 actually follow it, not "I'll be careful."
 
 **Risks:**
-1. _TODO_
-2. _TODO_
+1. Bias or underepresentation of minorities.
+2. Hallucinations.
 
-**My rule:** _TODO_
+**My rule:** Always ask the AI to provide the sources or references so I can check the information myself.
 
 ## 9. Something that went wrong (and how you figured it out)
 
