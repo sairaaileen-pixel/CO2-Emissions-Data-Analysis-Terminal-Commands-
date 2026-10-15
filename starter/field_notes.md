@@ -130,7 +130,7 @@ name alone:
 **In your own words:** what's the actual difference between a list/array
 and a table? (Not a definition you looked up — explain it the way you'd
 explain it to a friend who's never coded. No command needed for this one,
-just think about the table you just filled in above.)
+just think about the table you just filled in above.).       
 
 A list/ array is a line where we can find a group of values, ususally separated by "," or "|".
 
