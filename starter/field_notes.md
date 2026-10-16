@@ -88,13 +88,21 @@ a lot easier to scan than one long comma-separated row.
 
 ```bash
 # A command (or combination of commands) that prints just the header 
- ```bash 
- head -5 co2_emissions_2022.csv 
+head -n 1 co2_emissions_2022.csv | tr ',' '\n'
+ ```
+ 
 # row, one column name per line
 ``` 
 
 **Output:** 
-country,iso_code,year,population,gdp,co2
+
+tr ',' '\n'
+country
+iso_code
+year
+population
+gdp
+co2
 
 ## 3. Column-by-column data type table
 
@@ -135,7 +143,7 @@ A table is a  two dimensional structure where we can find multiple data types or
 
 State whether this dataset is structured or unstructured, and why.
 
-This dataset is organized because the data is structured in a table where each data type has it's respective column and row.
+This dataset is structured because the data is organized in a table where each data type has its respective column and row.
 
 ## 5. Before you trust this data
 
@@ -157,7 +165,7 @@ command's output into the next as input.
 36
 
 ```bash
-# TODO: the same idea, but for the gdp column
+# The same idea, but for the gdp column
 ``` 
 ```bash
 cut -d ',' -f5  co2_emissions_2022.csv | grep -c '^$'
@@ -190,7 +198,7 @@ curious to explore using this data? Pick two specific countries you're
 curious to compare, and look up their full rows.
 
 ```bash
-# TODO: a command that finds a specific country's row by name (repeat for
+# A command that finds a specific country's row by name (repeat for
 # a second country of your choice)
  grep -n "Haiti" co2_emissions_2022.csv 
  grep -n "Dominican Republic" co2_emissions_2022.csv
@@ -234,3 +242,17 @@ The actual error message, or the unexpected output you got_
 grep: co2_emissions_2022.csv: No such file or directory
 
 **What it told me and how I fixed it:** I realized I was in the wrong directory and used pwd to check my current location, then used cd to move into the correct directory where the file was stored before running the command again.
+
+## Above & Beyond: Module 1 Python Preview (`preview.py`)
+
+I ran the provided `preview.py` script in my terminal to test automated data typing. 
+#
+**Comparison:** 
+The `guess_type()` function matched my manual checks for straightforward columns like country names, CO2 values, and population counts. However, running it showed me a clear difference between mechanical checks and human analysis: the script just checks if a string can be cast into an integer or float without any awareness of context. A script might see numbers and label them as math values, but a human analyst recognizes when those numbers actually function as categorical codes or IDs.
+
+ **OUTPUT**
+
+ whole number
+decimal number
+text
+missing
